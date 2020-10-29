@@ -36,6 +36,11 @@ def quicksort(unsortiert):
 
 # Testcases
 class TestQuicksort(unittest.TestCase):
+    def test_quicksort_0(self):
+        unsortiert = [5, 7, 12, 4, 8, 3, 9, 1, 2]
+        sortiert = [1, 2, 3, 4, 5, 7, 8, 9, 12]
+        self.assertEqual(quicksort(unsortiert), sortiert)
+
     def test_quicksort_1(self):
         unsortiert = [7, 12, 4, 8, 3, 9]
         sortiert = [3, 4, 7, 8, 9, 12]
