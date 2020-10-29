@@ -1,12 +1,15 @@
 import unittest
 
+
 # Function quicksort:
 # Parameter: unsortiertes Array mit Zahlen
 # Result: sortiertes Array
-
-
 def quicksort(unsortiert):
-    pass
+    laenge = len(unsortiert)
+    if laenge <= 1:
+        return unsortiert
+    else:
+        pass
 
 
 # Testcases
