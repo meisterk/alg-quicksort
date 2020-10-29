@@ -5,33 +5,28 @@ import unittest
 # Parameter: unsortiertes Array mit Zahlen
 # Result: sortiertes Array
 def quicksort(unsortiert):
+    # Array ist schon sortiert?
     laenge = len(unsortiert)
     if laenge <= 1:
         return unsortiert
-    else:
-        # 1. Gesamtarray in zwei Arrays aufteilen
-        pivot = unsortiert[0]
-        links = []
-        rechts = []
-        for i in range(1, laenge):
-            if unsortiert[i] < pivot:
-                links.append(unsortiert[i])
-            else:
-                rechts.append(unsortiert[i])
 
-        # 2. Einzelteile sortieren
-        links = quicksort(links)
-        rechts = quicksort(rechts)
+    # 1. Gesamtarray in zwei Arrays aufteilen
+    pivot = unsortiert[0]
+    links = []
+    rechts = []
+    for i in range(1, laenge):
+        if unsortiert[i] <= pivot:
+            links.append(unsortiert[i])
+        else:
+            rechts.append(unsortiert[i])
 
-        # 3. zusammenbauen
-        ergebnis = []
-        for wert in links:
-            ergebnis.append(wert)
-        ergebnis.append(pivot)
-        for wert in rechts:
-            ergebnis.append(wert)
+    # 2. Einzelteile sortieren
+    links = quicksort(links)
+    rechts = quicksort(rechts)
 
-        return ergebnis
+    # 3. zusammenbauen
+    ergebnis = [] + links + [pivot] + rechts
+    return ergebnis
 
 
 # Testcases
